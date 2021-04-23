@@ -65,9 +65,10 @@ class MethodChannelFirebase extends FirebasePlatform {
   @override
   Future<FirebaseAppPlatform /*!*/ > initializeApp(
       {String /*?*/ name, FirebaseOptions /*?*/ options}) async {
-    if (name == defaultFirebaseAppName) {
-      throw noDefaultAppInitialization();
-    }
+    // workaround for https://github.com/FirebaseExtended/flutterfire/issues/5844
+    // if (name == defaultFirebaseAppName) {
+    //  throw noDefaultAppInitialization();
+    // }
 
     // Ensure that core has been initialized on the first usage of
     // initializeApp
